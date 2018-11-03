@@ -1,0 +1,25 @@
+* THESE INSTRUCTIONS SERVE AS A VERY GENERAL OVERVIEW *
+
+(1) Turn on both power bars
+(2) Open air flow valve for shutter operation
+(3) For TA experiments:
+   (3.1) Turn on arc lamp power supply
+         Set power to 65-70 W using current adjustment
+   (3.2) Turn on arc lamp pulser and toggle Output Enable
+   (3.3) Wait 5-10 minutes for arc lamp to stabilize
+(4) Turn on Nd:YAG laser. Turn key to ON position on Continuum PSU
+(5) Toggle Start/Stop and Open Shutter on Continuum PSU
+(6) Start LaserTable GUI
+(7) Select experiment type and then timebase
+(8) Input number of shots N per S number
+(9) Input number of shot groups S
+(10) Select a pause time between each group of shots S
+     This allows for relaxation of excited states in between collections
+(11) Select a target wavelength of interest.
+     The actual monochromator wavelength is returned in the field to the right
+(12) Monochromator slit width may be adjusted in the fields below wavelength selection
+(13) Digital Delay Generator parameters will be filled in automatically
+     upon experiment type selection
+(14) Put on safety glasses and check Start Pulse. This will start the laser!
+(15) Hit the green START button. This will initialize data collection
+(16) Data can be saved after collection to any directory by hitting Save Data?

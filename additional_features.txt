@@ -1,0 +1,18 @@
+* This software comes with some additional features: *
+
+(1) STIR ON
+    This feature is used for controlling the magnetic stirrer
+    Check STIR ON and rotate the knob on the grey box
+    labelled STIR to the left
+    * Check ATX power supply if stirrer does not turn on! *
+    
+(2) ABORT
+    The red ABORT button stops the run as soon as iteration over the
+    current group of shots S has terminated. This is NOT a safety feature
+    but rather meant for early termination of faulty runs
+    * NOTE THIS WILL NOT IMMEDIATELY SHUT DOWN ALL SYSTEMS ! *
+
+(3) Shutter Control
+    Manual shutter control can be exercised for troubleshooting
+    purposes. All shutters can be opened or closed simultaneously as well
+    and simply as a matter of convenience
