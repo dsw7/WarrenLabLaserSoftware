@@ -17,3 +17,8 @@ Description of all directories
 ~/WarrenLabLaserSoftware/additional_features.m    // info for other features that can be requested by user
 
 ------------------------------
+3 Nov 2018:
+Note that all .m scripts placed in this repo are from v3.9.0.
+I have a working 3.10.0 version on the lab PC that I will have
+to merge into this repo when I'm done.
+------------------------------
