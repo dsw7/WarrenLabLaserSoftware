@@ -224,7 +224,8 @@ Versions:
     * Removed a redundant shutter control command from acquisition loop
     * Fixed issue with wrong figure title showing up in figure window
     * Replaced Continuum PSU pressure switch
-        
+    
+    
 ~/LaserTable_msc_3_9_0 // Aug 16 2018
     * Refactored lt routine into program by diverting into function l_ts.m
     * y-axis offset issue occurs only during TA experiments for some reason -> stray arc lamp light?
