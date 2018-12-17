@@ -23,9 +23,10 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
        an experiment** or perhaps to abort an experiment if parameters were incorrectly chosen.  
 **Q.** Exports signal averaged data as .csv to a directory of choosing.  
 **R.** The results pane displaying the oscilloscope output.   
+---
 ### Example for Laser Options parameters  
-Here the program will take 25 blank reads and then 25 experimental reads.  
-This will then be repeated 3 times with a delay of 2 seconds between each group. 
+
+Note that the "user" has indicated they wish to collect 3 groups of 25 shots and have inputted a delay time of 2 seconds. What does this mean? An oscilloscope reading the output of the PMT will first collect 25 reads with a shutter blocking the Nd:YAG laser from striking the sample cuvette. This is the blank read. The shutter will then open and the Nd:YAG laser will reach (and excite) the sample 25 times. The sample will emit light which will be picked up by the PMT/oscilloscope. The blank data will then be subtracted from the experimental data to yield corrected data. Corrected data will then be signal averaged. Recall that the user specified 3 groups of shots. The aforementioned sequence of events will now be repeated three times, with a delay of 2 seconds between each group. The figure below very nicely depicts this sequence of events:  
 
 ![](https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/groups_shots_pause.png) 
 
