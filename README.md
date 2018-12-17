@@ -4,25 +4,25 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 ## Layout  
 ![aa](https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/gui_3_10_withlabels.png)
 ## Description  
-**A.** Here the user chooses between fluorescence and TA mode  
-**B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger)  
-**C.** The number of blank and experimental laser flashes (see **Example for Laser Options parameters**)  
-**D.** The number of groups of laser flashes (see **Example for Laser Options parameters**)  
-**E.** The pause time between groups of shots (see **Example for Laser Options parameters**)  
-**F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240)  
-**G.** The DK240 returns the ACTUAL wavelength back to the user  
-**H.** The user selects the slit width at the entrance of the DK240  
-**I.** The user selects the slit width at the exit of the DK240  
-**J.** The user selects the Hamamatsu PMT voltage  
-**K.** QC9514 Digital Delay Generator options. Note that these fields are filled automatically upon toggling **A**  
-**L.** This checkbox fires up the laser. The laser will not fire until all parameters have been selected  
-**M.** Convenience feature for programmatically controlling individual shutters  
-**N.** Convenience feature for programmatically controlling all shutters  
-**O.** Pressing the START button will begin an experiment  
+**A.** Here the user chooses between fluorescence and TA mode.  
+**B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger).  
+**C.** The number of blank and experimental laser flashes (see **Example for Laser Options parameters**).  
+**D.** The number of groups of laser flashes (see **Example for Laser Options parameters**).  
+**E.** The pause time between groups of shots (see **Example for Laser Options parameters**).  
+**F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240).  
+**G.** The DK240 returns the ACTUAL wavelength back to the user.  
+**H.** The user selects the slit width at the entrance of the DK240.  
+**I.** The user selects the slit width at the exit of the DK240.  
+**J.** The user selects the Hamamatsu PMT voltage.  
+**K.** QC9514 Digital Delay Generator options. Note that these fields are filled automatically upon toggling **A**.  
+**L.** This checkbox fires up the laser. The laser will not fire until all parameters have been selected.  
+**M.** Convenience feature for programmatically controlling individual shutters.  
+**N.** Convenience feature for programmatically controlling all shutters.  
+**O.** Pressing the START button will begin an experiment.  
 **P.** Pressing the ABORT button will immediately stop an experiment. **Use in case of a major safety issue arising during an  
-       an experiment** or perhaps to abort an experiment where parameters were incorrectly chosen  
-**Q.** Exports signal averaged data as .csv to a directory of choosing  
-**R.** The results pane  
+       an experiment** or perhaps to abort an experiment if parameters were incorrectly chosen.  
+**Q.** Exports signal averaged data as .csv to a directory of choosing.  
+**R.** The results pane displaying the oscilloscope output.   
 ### Example for Laser Options parameters  
 Here the program will take 25 blank reads and then 25 experimental reads.  
 This will then be repeated 3 times with a delay of 2 seconds between each group. 
