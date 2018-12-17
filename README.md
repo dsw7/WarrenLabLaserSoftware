@@ -1,7 +1,10 @@
 # WarrenLabLaserSoftware  
 Repository containing all Warren Lab MATLAB laser code written by DSW  
 ---
-
+## Layout  
+![aa](https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/gui_3_10_withlabels.png)
+## Description  
+  
 ## Description of all directories
 
     ~/WarrenLabLaserSoftware/LaserTableProgram.fig    // the GUI code
