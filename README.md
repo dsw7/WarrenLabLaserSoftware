@@ -22,7 +22,8 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 **P.** Pressing the ABORT button will immediately stop an experiment. **Use in case of a major safety issue arising during an  
        an experiment** or perhaps to abort an experiment if parameters were incorrectly chosen.  
 **Q.** Exports signal averaged data as .csv to a directory of choosing.  
-**R.** The results pane displaying the oscilloscope output.   
+**R.** The results pane displaying the oscilloscope output.  
+
 ---
 ### Example for Laser Options parameters  
 
