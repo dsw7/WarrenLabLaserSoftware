@@ -44,8 +44,10 @@ test
     ~/WarrenLabLaserSoftware/icon.png                 // some throwaway icon for standalone shortcut
     ~/WarrenLabLaserSoftware/caliper.ico              // some throwaway icon for standalone shortcut
     ~/WarrenLabLaserSoftware/gui_3.6.0.png            // screenshot of v3.6 UI for documentation/thesis purposes
+    ~/WarrenLabLaserSoftware/gui_3_10_withlabels.png  // screenshot of v3.10 UI for documentation purposes
     ~/WarrenLabLaserSoftware/general_instructions.m   // basic instructions imported into program upon user request
     ~/WarrenLabLaserSoftware/additional_features.m    // info for other features that can be requested by user
+    ~/WarrenLabLaserSoftware/groups_shots_pause.m     // schematic representation of groups vs. shots vs. pause UI input
 ---  
 ## Other notes   
   
