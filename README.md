@@ -12,10 +12,10 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 **F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240)  
 **G.** The DK240 returns the ACTUAL wavelength back to the user  
 **H.** The user selects the slit width at the entrance of the DK240  
-**I.** The user selects the slit width at the exit of the DK240
+**I.** The user selects the slit width at the exit of the DK240  
 **J.** The user selects the Hamamatsu PMT voltage  
-**K.** QC9514 Digital Delay Generator options. Note that these fields are filled automatically upon toggling **A**.  
-**L.** This checkbox fires up the laser. The laser will not fire until all parameters have been selected.  
+**K.** QC9514 Digital Delay Generator options. Note that these fields are filled automatically upon toggling **A**  
+**L.** This checkbox fires up the laser. The laser will not fire until all parameters have been selected  
 **M.** Convenience feature for programmatically controlling individual shutters  
 **N.** Convenience feature for programmatically controlling all shutters  
 **O.** Pressing the START button will begin an experiment  
