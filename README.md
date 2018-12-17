@@ -8,10 +8,7 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 **B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger)  
 **C.** The number of laser flashes (including blanks) that a sample is exposed to  
 **D.** The number of groups of laser flashes that a sample is exposed to
-**E.** The pause time between groups of shots  
-### Example  
-Here the program will take 25 blank reads and then 25 experimental reads.  
-This will then be repeated 3 times with a delay of 2 seconds between each group.  
+**E.** The pause time between groups of shots   
 **F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240)  
 **G.** The DK240 returns the ACTUAL wavelength back to the user  
 **H.** The user selects the slit width at the entrance of the DK240  
@@ -22,10 +19,13 @@ This will then be repeated 3 times with a delay of 2 seconds between each group.
 **M.** Convenience feature for programmatically controlling individual shutters  
 **N.** Convenience feature for programmatically controlling all shutters  
 **O.** Pressing the START button will begin an experiment  
-**P.** Pressing the ABORT button will immediately stop an experiment. Use in case of a major safety issue arising during an  
-       an experiment or perhaps to abort an experiment where parameters were incorrectly chosen  
+**P.** Pressing the ABORT button will immediately stop an experiment. **Use in case of a major safety issue arising during an  
+       an experiment** or perhaps to abort an experiment where parameters were incorrectly chosen  
 **Q.** Exports signal averaged data as .csv to a directory of choosing  
 **R.** The results pane  
+### Example for Laser Options parameters  
+Here the program will take 25 blank reads and then 25 experimental reads.  
+This will then be repeated 3 times with a delay of 2 seconds between each group. 
 
 ---
 ## Description of all directories
