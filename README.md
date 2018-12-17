@@ -2,7 +2,7 @@
 Repository containing all Warren Lab MATLAB laser code written by DSW  
 ---
 
-# Description of all directories
+## Description of all directories
 
     ~/WarrenLabLaserSoftware/LaserTableProgram.fig    // the GUI code
     ~/WarrenLabLaserSoftware/LaserTableProgram.m      // the "main" script
@@ -16,15 +16,15 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
     ~/WarrenLabLaserSoftware/general_instructions.m   // basic instructions imported into program upon user request
     ~/WarrenLabLaserSoftware/additional_features.m    // info for other features that can be requested by user
 ---  
-# Other notes   
+## Other notes   
   
-// 3 Nov 2018  
+3 Nov 2018   
 Note that all .m scripts placed in this repo are from v3.9.0.  
 I have a working 3.10.0 version on the lab PC that I will have  
 to merge into this repo when I'm done.  
    
 ---
-# Some previous versions/notes from SFU Vault
+## Some previous versions/notes from SFU Vault
   
     ~/LaserTable_msc_3_1_0   
     
@@ -325,7 +325,7 @@ to merge into this repo when I'm done.
 6. Clean up directory as well - no need for .py scripts and other crap in there                            % DONE
 7. Fix shutter issue for transitioning between TA and Fluorescence experiments - shutter should close?     % DONE
 8. Find a programmatic solution for quering NI Device Loader status and/or start it by default?
-9. Throw in a warning box in _OpeningFcn() should the monochromator be off                                 % DONE
+9. Throw in a warning box in OpeningFcn() should the monochromator be off                                  % DONE
    { Updated internal_createDK240object.m to return status = 0 if an error is thrown which then
      forces user to turn on monochromator and restart program. }
 10. Remove STIR ON control and build a standalone stir control device                                      % DONE
