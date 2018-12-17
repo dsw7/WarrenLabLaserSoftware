@@ -6,9 +6,9 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 ## Description  
 **A.** Here the user chooses between fluorescence and TA mode  
 **B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger)  
-**C.** The number of blank and experimental laser flashes   
-**D.** The number of groups of laser flashes   
-**E.** The pause time between groups of shots   
+**C.** The number of blank and experimental laser flashes (see **Example for Laser Options parameters**)  
+**D.** The number of groups of laser flashes (see **Example for Laser Options parameters**)  
+**E.** The pause time between groups of shots (see **Example for Laser Options parameters**)  
 **F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240)  
 **G.** The DK240 returns the ACTUAL wavelength back to the user  
 **H.** The user selects the slit width at the entrance of the DK240  
@@ -30,6 +30,7 @@ This will then be repeated 3 times with a delay of 2 seconds between each group.
 ![](https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/groups_shots_pause.png) 
 
 <!---
+    # code for plotting the shots groups delay figure
     import matplotlib.pyplot as plt
     import matplotlib.patches as patches  
   
@@ -39,9 +40,11 @@ This will then be repeated 3 times with a delay of 2 seconds between each group.
     ax = f.add_subplot(111)
 
     ax = plt.gca()
+    # kill top / right borders
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
 
+    # all six rectangles
     ax.add_patch(patches.Rectangle((0,   0), width=25, height=0.2, edgecolor='k'))
     ax.add_patch(patches.Rectangle((25,  0), width=25, height=0.4, edgecolor='k', facecolor='r'))
     ax.add_patch(patches.Rectangle((75,  0), width=25, height=0.2, edgecolor='k'))
@@ -49,6 +52,7 @@ This will then be repeated 3 times with a delay of 2 seconds between each group.
     ax.add_patch(patches.Rectangle((150, 0), width=25, height=0.2, edgecolor='k'))
     ax.add_patch(patches.Rectangle((175, 0), width=25, height=0.4, edgecolor='k', facecolor='r'))
 
+    # rectangle labels
     plt.text(12.5, 0.22, 'Blank', size=12, ha='center')
     plt.text(37.5, 0.42, 'Experimental', size=12, ha='center')
     plt.text(87.5, 0.22, 'Blank', size=12, ha='center')
@@ -56,15 +60,17 @@ This will then be repeated 3 times with a delay of 2 seconds between each group.
     plt.text(162.5, 0.22, 'Blank', size=12, ha='center')
     plt.text(187.5, 0.42, 'Experimental', size=12, ha='center')
 
+    # group labels
     plt.text(25,  0.5, 'Group 1', size=16, ha='center')
     plt.text(100, 0.5, 'Group 2', size=16, ha='center')
     plt.text(175, 0.5, 'Group 3', size=16, ha='center')
 
+    # delay labels
     plt.text(62.5,  0.05, '2 second\n delay', ha='center', size=10)
     plt.text(137.5, 0.05, '2 second\n delay', ha='center', size=10)
 
+    # customize x / y ticks
     plt.yticks([])
-
     pos    = [0, 25, 50, 75, 100, 125, 150, 175, 200]
     labels = [0, 25, 50, 0, 25, 50, 0, 25, 50]
     plt.xticks(pos, labels)
