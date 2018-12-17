@@ -6,8 +6,8 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 ## Description  
 **A.** Here the user chooses between fluorescence and TA mode  
 **B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger)  
-**C.** The number of laser flashes (including blanks) that a sample is exposed to  
-**D.** The number of groups of laser flashes that a sample is exposed to
+**C.** The number of blank and experimental laser flashes   
+**D.** The number of groups of laser flashes   
 **E.** The pause time between groups of shots   
 **F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240)  
 **G.** The DK240 returns the ACTUAL wavelength back to the user  
@@ -26,6 +26,11 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 ### Example for Laser Options parameters  
 Here the program will take 25 blank reads and then 25 experimental reads.  
 This will then be repeated 3 times with a delay of 2 seconds between each group. 
+
+<!---
+test  
+test
+-->
 
 ---
 ## Description of all directories
