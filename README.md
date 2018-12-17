@@ -1,51 +1,45 @@
-# WarrenLabLaserSoftware
-Repository containing all Warren Lab MATLAB laser code written by DSW
+# WarrenLabLaserSoftware  
+Repository containing all Warren Lab MATLAB laser code written by DSW  
+---
 
-===================================================================
-Description of all directories:
+# Description of all directories
 
-~/WarrenLabLaserSoftware/LaserTableProgram.fig    // the GUI code
-~/WarrenLabLaserSoftware/LaserTableProgram.m      // the "main" script
-~/WarrenLabLaserSoftware/css.m                    // isolated .m CompuScope data acquisition script
-~/WarrenLabLaserSoftware/l_ts.m                   // isolated .m long timescale data acquisition script
-~/WarrenLabLaserSoftware/docs                     // contains all hardware data/spec sheets
-~/WarrenLabLaserSoftware/_defunct                 // contains legacy code
-~/WarrenLabLaserSoftware/icon.png                 // some throwaway icon for standalone shortcut
-~/WarrenLabLaserSoftware/caliper.ico              // some throwaway icon for standalone shortcut
-~/WarrenLabLaserSoftware/gui_3.6.0.png            // screenshot of v3.6 UI for documentation/thesis purposes
-~/WarrenLabLaserSoftware/general_instructions.m   // basic instructions imported into program upon user request
-~/WarrenLabLaserSoftware/additional_features.m    // info for other features that can be requested by user
-
-===================================================================
-Other notes:
-
-// 3 Nov 2018
-Note that all .m scripts placed in this repo are from v3.9.0.
-I have a working 3.10.0 version on the lab PC that I will have
-to merge into this repo when I'm done.
-
-===================================================================
-Versions:
-
-
-~/LaserTable_msc_3_1_0
+    ~/WarrenLabLaserSoftware/LaserTableProgram.fig    // the GUI code
+    ~/WarrenLabLaserSoftware/LaserTableProgram.m      // the "main" script
+    ~/WarrenLabLaserSoftware/css.m                    // isolated .m CompuScope data acquisition script
+    ~/WarrenLabLaserSoftware/l_ts.m                   // isolated .m long timescale data acquisition script
+    ~/WarrenLabLaserSoftware/docs                     // contains all hardware data/spec sheets
+    ~/WarrenLabLaserSoftware/_defunct                 // contains legacy code
+    ~/WarrenLabLaserSoftware/icon.png                 // some throwaway icon for standalone shortcut
+    ~/WarrenLabLaserSoftware/caliper.ico              // some throwaway icon for standalone shortcut
+    ~/WarrenLabLaserSoftware/gui_3.6.0.png            // screenshot of v3.6 UI for documentation/thesis purposes
+    ~/WarrenLabLaserSoftware/general_instructions.m   // basic instructions imported into program upon user request
+    ~/WarrenLabLaserSoftware/additional_features.m    // info for other features that can be requested by user
+---  
+# Other notes   
+  
+// 3 Nov 2018  
+Note that all .m scripts placed in this repo are from v3.9.0.  
+I have a working 3.10.0 version on the lab PC that I will have  
+to merge into this repo when I'm done.  
+   
+---
+# Some previous versions/notes from SFU Vault
+  
+    ~/LaserTable_msc_3_1_0   
+       
+    ~/LaserTable_msc_3_2_0  
+    Very stable version, previously used in C7000 lab  
     
-    
-~/LaserTable_msc_3_2_0
-    Very stable version, previously used in C7000 lab
-
-
-~/DSWLaserProgram_3_2_0
-~/DSWLaserProgram_3_2_0.prj
+    ~/DSWLaserProgram_3_2_0
+    ~/DSWLaserProgram_3_2_0.prj
     MATLAB deploytool generated binaries for LaserTable_msc_3_2_0 directory
- 
- 
-~/DSWLaserTable_3_6_deploytoolbinaries
-    MATLAB deploytool generated binaries for {}_3_6_0 version
-    .exe located under ~/DSWLaserTable_3_6_deploytoolbinaries/for_testing
-    
-    
-~/LaserTable_msc_3_3_0 // May 29 2018
+   
+    ~/DSWLaserTable_3_6_deploytoolbinaries  
+    MATLAB deploytool generated binaries for {}_3_6_0 version  
+    .exe located under ~/DSWLaserTable_3_6_deploytoolbinaries/for_testing  
+       
+    ~/LaserTable_msc_3_3_0 // May 29 2018
     * Removed Python scripts
     * Minimum number of shots N reduced from 10 to 1
     * Minimum groups of shots S reduced from 3 to 1
@@ -94,8 +88,7 @@ Versions:
     ~/LaserTable_msc_3_3_0/internal_QC9514_pulsestate.m
         Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.              
 
-
-~/LaserTable_msc_3_4_0 // July 17 2018
+    ~/LaserTable_msc_3_4_0 // July 17 2018
     * N = 1 for timebase > 1 ms
     * width = 2.0 s for timebase > 1 ms
     * Changed the following under ~/LaserTable_msc_3_4_0/internal_run_experiment.m:  
@@ -146,10 +139,9 @@ Versions:
             experimental [] - background [] -> corrected []
         export corrected [] for plot
 
-    * Added a slider for programmatically controlling the PMT voltage.
+    * Added a slider for programmatically controlling the PMT voltage       
         
-        
-~/LaserTable_msc_3_5_0 // July 18 2018
+    ~/LaserTable_msc_3_5_0 // July 18 2018
     * Did not remove global declarations - turns out they really are the best option in MATLAB
     * Changed handles._ referencing to hObject referencing in shutter radio button functions
     * Rewrote NI shutter / PMT voltage control code in line with NI documentation
@@ -168,9 +160,8 @@ Versions:
     * Removed experiment_mode -> experimentType conversion from the START EXPERIMENT section
     * Removed QC9514 global declarations from 'Digital Delay Generator' panel callbacks - no idea what this will do
     * Laser now shuts off at the end of an experiment for safety reasons
-     
-     
-~/LaserTable_msc_3_6_0 // July 31 2018
+        
+    ~/LaserTable_msc_3_6_0 // July 31 2018
     * Replaced {} with {}:
         ~/LaserTable_msc_3_6_0/internal_setup.m -> LaserTable_msc_3_6_0/css.m
     * Minimum groups of shots set back to 3. The signal averaging algorithm crashes for any number of groups < 3.
@@ -198,9 +189,8 @@ Versions:
     This is due to the fact that ~/LaserTable_msc_3_6_0/internal_run_experiment_lt.m
     script was obliterated on setting up the CompuScope acquisition algorithm into the
     main script -> see (18) in TODO list.
-        
-        
-~/LaserTable_msc_3_7_0 // Aug 14 2018
+               
+    ~/LaserTable_msc_3_7_0 // Aug 14 2018
     * Refactored DK240 monochromator code into main script
     * fopen() / fclose() pipeline confirmed for DK240 hardware
     * Removed the following due to redundancy (after refactoring):
@@ -212,9 +202,8 @@ Versions:
         ~/LaserTable_msc_3_7_0/internal_GETmonochromator_wavelength.m
         ~/LaserTable_msc_3_7_0/internal_byte2number.m
         ~/LaserTable_msc_3_7_0/internal_number2byte.m
-      
-      
-~/LaserTable_msc_3_8_0 // Aug 15 2018
+         
+    ~/LaserTable_msc_3_8_0 // Aug 15 2018
     * Refactored QC9514 SCPI communication code into main script
     * fopen() / fclose() pipeline confirmed for QC9514 hardware
     * Removed the following due to redundancy (after refactoring):
@@ -226,7 +215,7 @@ Versions:
     * Replaced Continuum PSU pressure switch
     
     
-~/LaserTable_msc_3_9_0 // Aug 16 2018
+    ~/LaserTable_msc_3_9_0 // Aug 16 2018
     * Refactored lt routine into program by diverting into function l_ts.m
     * y-axis offset issue occurs only during TA experiments for some reason -> stray arc lamp light?
     * Added the voltage correction algorithm into the acquisition loop terminal to fix y-axis offset
@@ -297,9 +286,8 @@ Versions:
             fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
         end   
     -------------------------------------------------------------
-    
-    
-~/LaserTable_msc_3_10_0 // Nov 2 2018
+        
+    ~/LaserTable_msc_3_10_0 // Nov 2 2018
     * Begin preparing for transition to GitHub -> /dsw7/WarrenLabLaserSoftware
     * Note that existing code in GH is from v3.9.0 -> update this with 3.10.0 code?
     * Control circuit -> ~/stircontrol_warrenlasertable/dsw_controlcircuit_pinout.pdf
