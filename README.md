@@ -27,18 +27,26 @@ to merge into this repo when I'm done.
 # Some previous versions/notes from SFU Vault
   
     ~/LaserTable_msc_3_1_0   
-       
+    
+    ========================================================   
+      
     ~/LaserTable_msc_3_2_0  
     Very stable version, previously used in C7000 lab  
+    
+    ========================================================     
     
     ~/DSWLaserProgram_3_2_0
     ~/DSWLaserProgram_3_2_0.prj
     MATLAB deploytool generated binaries for LaserTable_msc_3_2_0 directory
-   
+    
+    ========================================================   
+         
     ~/DSWLaserTable_3_6_deploytoolbinaries  
     MATLAB deploytool generated binaries for {}_3_6_0 version  
     .exe located under ~/DSWLaserTable_3_6_deploytoolbinaries/for_testing  
-       
+    
+    ========================================================   
+             
     ~/LaserTable_msc_3_3_0 // May 29 2018
     * Removed Python scripts
     * Minimum number of shots N reduced from 10 to 1
@@ -86,7 +94,9 @@ to merge into this repo when I'm done.
         SCPI formatting standards for the QC9514 device yet. Check if fprintf() is the 
         best way to pass SCPI commands.                                                                   
     ~/LaserTable_msc_3_3_0/internal_QC9514_pulsestate.m
-        Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.              
+        Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.                   
+    
+    ========================================================         
 
     ~/LaserTable_msc_3_4_0 // July 17 2018
     * N = 1 for timebase > 1 ms
@@ -139,8 +149,10 @@ to merge into this repo when I'm done.
             experimental [] - background [] -> corrected []
         export corrected [] for plot
 
-    * Added a slider for programmatically controlling the PMT voltage       
-        
+    * Added a slider for programmatically controlling the PMT voltage     
+    
+    ========================================================   
+            
     ~/LaserTable_msc_3_5_0 // July 18 2018
     * Did not remove global declarations - turns out they really are the best option in MATLAB
     * Changed handles._ referencing to hObject referencing in shutter radio button functions
@@ -160,7 +172,9 @@ to merge into this repo when I'm done.
     * Removed experiment_mode -> experimentType conversion from the START EXPERIMENT section
     * Removed QC9514 global declarations from 'Digital Delay Generator' panel callbacks - no idea what this will do
     * Laser now shuts off at the end of an experiment for safety reasons
-        
+    
+    ========================================================   
+             
     ~/LaserTable_msc_3_6_0 // July 31 2018
     * Replaced {} with {}:
         ~/LaserTable_msc_3_6_0/internal_setup.m -> LaserTable_msc_3_6_0/css.m
@@ -189,7 +203,9 @@ to merge into this repo when I'm done.
     This is due to the fact that ~/LaserTable_msc_3_6_0/internal_run_experiment_lt.m
     script was obliterated on setting up the CompuScope acquisition algorithm into the
     main script -> see (18) in TODO list.
-               
+    
+    ========================================================   
+                    
     ~/LaserTable_msc_3_7_0 // Aug 14 2018
     * Refactored DK240 monochromator code into main script
     * fopen() / fclose() pipeline confirmed for DK240 hardware
@@ -201,8 +217,10 @@ to merge into this repo when I'm done.
         ~/LaserTable_msc_3_7_0/internal_GETmonochromator_exit_slit_width.m
         ~/LaserTable_msc_3_7_0/internal_GETmonochromator_wavelength.m
         ~/LaserTable_msc_3_7_0/internal_byte2number.m
-        ~/LaserTable_msc_3_7_0/internal_number2byte.m
-         
+        ~/LaserTable_msc_3_7_0/internal_number2byte.m 
+    
+    ========================================================   
+      
     ~/LaserTable_msc_3_8_0 // Aug 15 2018
     * Refactored QC9514 SCPI communication code into main script
     * fopen() / fclose() pipeline confirmed for QC9514 hardware
@@ -212,9 +230,10 @@ to merge into this repo when I'm done.
     * Arc lamp pulser shuts off between TA experiments
     * Removed a redundant shutter control command from acquisition loop
     * Fixed issue with wrong figure title showing up in figure window
-    * Replaced Continuum PSU pressure switch
+    * Replaced Continuum PSU pressure switch  
     
-    
+    ========================================================   
+      
     ~/LaserTable_msc_3_9_0 // Aug 16 2018
     * Refactored lt routine into program by diverting into function l_ts.m
     * y-axis offset issue occurs only during TA experiments for some reason -> stray arc lamp light?
@@ -251,7 +270,6 @@ to merge into this repo when I'm done.
     Another developer can easily undo my changes by adding the above to the String list
     through the GUIDE property inspector
 
-
     "! QC9514 channel not pulsing in lt_s.m" traceback:
 
     Step 1. User starts program, selects TA and then selects a long timescale alongside the other setup
@@ -287,6 +305,8 @@ to merge into this repo when I'm done.
         end   
     -------------------------------------------------------------
         
+    ========================================================   
+      
     ~/LaserTable_msc_3_10_0 // Nov 2 2018
     * Begin preparing for transition to GitHub -> /dsw7/WarrenLabLaserSoftware
     * Note that existing code in GH is from v3.9.0 -> update this with 3.10.0 code?
@@ -295,44 +315,44 @@ to merge into this repo when I'm done.
     * Further isolate and clarify entry point into lt_s.m for other developers?
         
 
-===================================================================
-TODO list:
-    (1) PMT programmatic voltage control                                                                        % DONE
-    (2) Arc lamp pulser off between experiments                                                                 % DONE
-    (3) Set minimum number of cycles S to 1 ---> currently set at 3                                             % DONE
-    (4) Set minimum number of shots N to 1 ---> currently set at 10                                             % DONE
-    (5) DSW addition - clean up code a lot - it is far from publication worthy...                               % DONE
-    (6) Clean up directory as well - no need for .py scripts and other crap in there                            % DONE
-    (7) Fix shutter issue for transitioning between TA and Fluorescence experiments - shutter should close?     % DONE
-    (8) Find a programmatic solution for quering NI Device Loader status and/or start it by default?
-    (9) Throw in a warning box in _OpeningFcn() should the monochromator be off                                 % DONE
-        { Updated internal_createDK240object.m to return status = 0 if an error is thrown which then
-          forces user to turn on monochromator and restart program. }
-    (10) Remove STIR ON control and build a standalone stir control device                                      % DONE
-    (11) Set up a workaround for NI-DAQ Error -200324
-    (12) Rewrite NI control code in line with NI documentation                                                  % DONE
-    (13) Write exit functions for gracefully disconnecting from NI, CompuScope instead of relying on internals  % DONE
-    (14) Remove all global declarations                                                                         % PASSED
-    (15) Confirm that all fopen() / fclose() pipelines follow literature/documentation recommendations          % DONE
-    (16) Remove additional redundant functions ->  ~/internal_QC9514_pulsestate.m                               % DONE
-    (17) Update shutter radio button states to match shutter states on start up
-    (18) Update ~/LaserTable_msc_3_5_0/internal_run_experiment_lt.m NI routines                                 % DONE 
-    (19) Attempt to make ABORT button abort experiment immediately using CsMl_AbortCapture()                    % DONE
-    (18) Merge updated ~/LaserTable_msc_3_6_0/internal_run_experiment_lt.m into the main script
-    (19) Reformat GUI - increase density, labelling and add version number                                      % DONE
-    (20) Find a suitable icon for the standalone executable                                                     % DONE
-    (21) Confirm that CsMl pipeline matches the pipeline presented in thesis script                             % DONE
-    (22) Rewrite some parts of LICENSE.md to reflect work done by DSW
-    (23) Remove ~/internal_byte2number.m & ~/internal_number2byte.m                                             % DONE
-    (24) Add a msgbox that indicates when an experiment has finished [Daina suggestion]                         % DONE
-    (25) Fix issue with figure title displaying wrong version                                                   % DONE
-    (26) Take one last look at TA/flourescence shutter control scheme and confirm proper operation
-    (27) Add drop down menu to manually select COM port for DK240/QC9514 (override default)
-    (28) Update acquisition loop to work with long timescales (!! _lt.m function) <- < 10 s (JJW email)         % DONE
-    (29) Update additional_features.txt & general_instructions.txt to reflect program changes
-    (30) Program in the stir stop feature for long timescale experiments
-    (31) REBUILD l_ts.m - 10 Hz laser pulse is being picked up by slow digitizer
-    (32) Should probably make some slight adjustments to the laser manual in the near future
-    (33) Throw in voltage error correction algorithm into acquisition loop terminus                             % DONE
-    (34) Make abort feature work in l_ts.m
-    (35) Isolate and clarify entry point into lt_s.m such that other developers (or myself) can pick up here
+---
+## TODO list:
+1. PMT programmatic voltage control                                                                        % DONE
+2. Arc lamp pulser off between experiments                                                                 % DONE
+3. Set minimum number of cycles S to 1 ---> currently set at 3                                             % DONE
+4. Set minimum number of shots N to 1 ---> currently set at 10                                             % DONE
+5. DSW addition - clean up code a lot - it is far from publication worthy...                               % DONE
+6. Clean up directory as well - no need for .py scripts and other crap in there                            % DONE
+7. Fix shutter issue for transitioning between TA and Fluorescence experiments - shutter should close?     % DONE
+8. Find a programmatic solution for quering NI Device Loader status and/or start it by default?
+9. Throw in a warning box in _OpeningFcn() should the monochromator be off                                 % DONE
+   { Updated internal_createDK240object.m to return status = 0 if an error is thrown which then
+     forces user to turn on monochromator and restart program. }
+10. Remove STIR ON control and build a standalone stir control device                                      % DONE
+11. Set up a workaround for NI-DAQ Error -200324
+12. Rewrite NI control code in line with NI documentation                                                  % DONE
+13. Write exit functions for gracefully disconnecting from NI, CompuScope instead of relying on internals  % DONE
+14. Remove all global declarations                                                                         % PASSED
+15. Confirm that all fopen() / fclose() pipelines follow literature/documentation recommendations          % DONE
+16. Remove additional redundant functions ->  ~/internal_QC9514_pulsestate.m                               % DONE
+17. Update shutter radio button states to match shutter states on start up
+18. Update ~/LaserTable_msc_3_5_0/internal_run_experiment_lt.m NI routines                                 % DONE 
+19. Attempt to make ABORT button abort experiment immediately using CsMl_AbortCapture()                    % DONE
+20. Merge updated ~/LaserTable_msc_3_6_0/internal_run_experiment_lt.m into the main script
+21. Reformat GUI - increase density, labelling and add version number                                      % DONE
+22. Find a suitable icon for the standalone executable                                                     % DONE
+23. Confirm that CsMl pipeline matches the pipeline presented in thesis script                             % DONE
+24. Rewrite some parts of LICENSE.md to reflect work done by DSW
+25. Remove ~/internal_byte2number.m & ~/internal_number2byte.m                                             % DONE
+26. Add a msgbox that indicates when an experiment has finished [Daina suggestion]                         % DONE
+27. Fix issue with figure title displaying wrong version                                                   % DONE
+28. Take one last look at TA/flourescence shutter control scheme and confirm proper operation
+29. Add drop down menu to manually select COM port for DK240/QC9514 (override default)
+30. Update acquisition loop to work with long timescales (!! _lt.m function) <- < 10 s (JJW email)         % DONE
+31. Update additional_features.txt & general_instructions.txt to reflect program changes
+32. Program in the stir stop feature for long timescale experiments
+33. REBUILD l_ts.m - 10 Hz laser pulse is being picked up by slow digitizer
+34. Should probably make some slight adjustments to the laser manual in the near future
+35. Throw in voltage error correction algorithm into acquisition loop terminus                             % DONE
+36. Make abort feature work in l_ts.m
+37. Isolate and clarify entry point into lt_s.m such that other developers (or myself) can pick up here
