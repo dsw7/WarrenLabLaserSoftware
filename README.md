@@ -2,7 +2,9 @@
 Repository containing all Warren Lab MATLAB laser code written by DSW  
 ---
 ## Layout  
-![aa](https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/gui_3_10_withlabels.png)
+
+<img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/gui_3_10_withlabels.png">  
+
 ## Description  
 **A.** Here the user chooses between fluorescence and TA mode.  
 **B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger).  
@@ -27,9 +29,11 @@ Repository containing all Warren Lab MATLAB laser code written by DSW
 ---
 ### Example for Laser Options parameters  
 
+<p align="justified">
 Note that the "user" has indicated they wish to collect 3 groups of 25 shots and have inputted a delay time of 2 seconds. What does this mean? An oscilloscope reading the output of the PMT will first collect 25 reads with a shutter blocking the Nd:YAG laser from striking the sample cuvette. This is the blank read. The shutter will then open and the Nd:YAG laser will reach (and excite) the sample 25 times. The sample will emit light which will be picked up by the PMT/oscilloscope. The blank data will then be subtracted from the experimental data to yield corrected data. Corrected data will then be signal averaged. Recall that the user specified 3 groups of shots. The aforementioned sequence of events will now be repeated three times, with a delay of 2 seconds between each group. The figure below very nicely depicts this sequence of events:  
+</p>
 
-![](https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/groups_shots_pause.png) 
+<img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/groups_shots_pause.png">
 
 <!---
     # code for plotting the shots groups delay figure
@@ -87,27 +91,22 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
 ---
 ## Description of all directories
 
-    ~/WarrenLabLaserSoftware/LaserTableProgram.fig    // the GUI code
-    ~/WarrenLabLaserSoftware/LaserTableProgram.m      // the "main" script
-    ~/WarrenLabLaserSoftware/css.m                    // isolated .m CompuScope data acquisition script
-    ~/WarrenLabLaserSoftware/l_ts.m                   // isolated .m long timescale data acquisition script
-    ~/WarrenLabLaserSoftware/docs                     // contains all hardware data/spec sheets
-    ~/WarrenLabLaserSoftware/_defunct                 // contains legacy code
-    ~/WarrenLabLaserSoftware/icon.png                 // some throwaway icon for standalone shortcut
-    ~/WarrenLabLaserSoftware/caliper.ico              // some throwaway icon for standalone shortcut
-    ~/WarrenLabLaserSoftware/gui_3.6.0.png            // screenshot of v3.6 UI for documentation/thesis purposes
-    ~/WarrenLabLaserSoftware/gui_3_10_withlabels.png  // screenshot of v3.10 UI for documentation purposes
-    ~/WarrenLabLaserSoftware/general_instructions.m   // basic instructions imported into program upon user request
-    ~/WarrenLabLaserSoftware/additional_features.m    // info for other features that can be requested by user
-    ~/WarrenLabLaserSoftware/groups_shots_pause.m     // schematic representation of groups vs. shots vs. pause UI input
----  
-## Other notes   
-  
-3 Nov 2018   
-Note that all .m scripts placed in this repo are from v3.9.0.  
-I have a working 3.10.0 version on the lab PC that I will have  
-to merge into this repo when I'm done.  
-   
+    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.fig    // last grad school GUI update 
+    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.m      // last grad school "main" script update 
+    ~/WarrenLabLaserSoftware/LaserTableProgram.fig          // the GUI code
+    ~/WarrenLabLaserSoftware/LaserTableProgram.m            // the "main" script
+    ~/WarrenLabLaserSoftware/css.m                          // isolated .m CompuScope data acquisition script
+    ~/WarrenLabLaserSoftware/l_ts.m                         // isolated .m long timescale data acquisition script
+    ~/WarrenLabLaserSoftware/docs                           // contains all hardware data/spec sheets
+    ~/WarrenLabLaserSoftware/_defunct                       // contains legacy code
+    ~/WarrenLabLaserSoftware/icon.png                       // some throwaway icon for standalone shortcut
+    ~/WarrenLabLaserSoftware/caliper.ico                    // some throwaway icon for standalone shortcut
+    ~/WarrenLabLaserSoftware/gui_3.6.0.png                  // screenshot of v3.6 UI for documentation/thesis purposes
+    ~/WarrenLabLaserSoftware/gui_3_10_withlabels.png        // screenshot of v3.10 UI for documentation purposes
+    ~/WarrenLabLaserSoftware/general_instructions.m         // basic instructions imported into program upon user request
+    ~/WarrenLabLaserSoftware/additional_features.m          // info for other features that can be requested by user
+    ~/WarrenLabLaserSoftware/groups_shots_pause.m           // schematic representation of groups vs. shots vs. pause UI input  
+
 ---
 ## Some previous versions/notes from SFU Vault
   
