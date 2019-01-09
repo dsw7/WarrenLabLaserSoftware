@@ -1,5 +1,8 @@
 # WarrenLabLaserSoftware  
-Repository containing all Warren Lab MATLAB laser code written by DSW  
+
+Repository containing all Warren Lab MATLAB laser code written by DSW.
+See https://github.com/dsw7/DSW-Thesis/tree/master/thesis_SerialIO for hardware I/O MATLAB snippets.
+
 ---
 ## Layout  
 
