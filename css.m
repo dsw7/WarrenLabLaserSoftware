@@ -31,7 +31,6 @@ CsMl_ErrorHandler(retval);
 CsMl_ErrorHandler(retval);
 
 %{
-
 args_m = [
       5e8, 5e8, 2.5e8, 1.25e8, 2.5e7, 2.5e7, ...
       1e7, 2.5e6, 1e6, 2e5, 1e5, 1e4, 2e3;
@@ -50,8 +49,6 @@ SampleRate = args_m(1, TIMEBASE - 1);
 DEPTH = args_m(2, TIMEBASE - 1);
 TRIGGERHOLDOFF = args_m(3, TIMEBASE - 1);
 BETWEEN = args_m(4, TIMEBASE - 1);
-
-
 %}
 
 
