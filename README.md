@@ -109,7 +109,6 @@ Note that in the [Layout](#layout) example, the "user" has indicated they wish t
     ~/WarrenLabLaserSoftware/general_instructions.m         // basic instructions imported into program upon user request
     ~/WarrenLabLaserSoftware/additional_features.m          // info for other features that can be requested by user
     ~/WarrenLabLaserSoftware/groups_shots_pause.m           // schematic representation of groups vs. shots vs. pause UI input
-    ~/WarrenLabLaserSoftware/legacy.zip                     // contains files from other groups used for reverse engineering
 
 ---
 ## Some previous versions/notes from SFU Vault
