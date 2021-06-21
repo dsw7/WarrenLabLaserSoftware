@@ -23,9 +23,9 @@ Label | Description
 ----- | -----------
 **A** |  Here the user chooses between fluorescence and TA mode.
 **B** |  The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger).
-**C** |  The number of blank and experimental laser flashes (see **Example for Laser Options parameters**).
-**D** |  The number of groups of laser flashes (see **Example for Laser Options parameters**).
-**E** |  The pause time between groups of shots (see **Example for Laser Options parameters**).
+**C** |  The number of blank and experimental laser flashes (see [Example for Laser Options parameters](#example-for-laser-options-parameters)).
+**D** |  The number of groups of laser flashes (see [Example for Laser Options parameters](#example-for-laser-options-parameters)).
+**E** |  The pause time between groups of shots (see [Example for Laser Options parameters](#example-for-laser-options-parameters)).
 **F** |  The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240).
 **G** |  The DK240 returns the ACTUAL wavelength back to the user.
 **H** |  The user selects the slit width at the entrance of the DK240.
