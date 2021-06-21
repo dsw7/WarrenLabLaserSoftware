@@ -7,6 +7,10 @@ Repository containing all Warren Lab MATLAB laser code written by David Weber. S
 - This code can likely very easily be broken up into individual `*.m` files.
 
 ## Layout
+<p align="center">
+    <img src="pngs/gui_3_10_withlabels.png">
+</p>
+
 <img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/pngs/gui_3_10_withlabels.png">
 
 ## Description
@@ -33,9 +37,6 @@ Label | Description
 
 ## Example for Laser Options parameters
 Note that in the [Layout](#layout) example, the "user" has indicated they wish to collect 3 groups of 25 shots and have inputted a delay time of 2 seconds. What does this mean? An oscilloscope reading the output of the PMT will first collect 25 reads with a shutter blocking the Nd:YAG laser from striking the sample cuvette. This is the blank read. The shutter will then open and the Nd:YAG laser will reach (and excite) the sample 25 times. The sample will emit light which will be picked up by the PMT/oscilloscope. The blank data will then be subtracted from the experimental data to yield corrected data. Corrected data will then be signal averaged. Recall that the user specified 3 groups of shots. The aforementioned sequence of events will now be repeated three times, with a delay of 2 seconds between each group. The figure below very nicely depicts this sequence of events:
-
-<img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/pngs/groups_shots_pause.png">
-
 <p align="center">
     <img src="pngs/groups_shots_pause.png">
 </p>
