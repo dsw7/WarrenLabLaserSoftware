@@ -44,4 +44,4 @@ labels = [0, 25, 50, 0, 25, 50, 0, 25, 50]
 plt.xticks(positions, labels)
 
 plt.xlabel('Laser shots', size=14)
-plt.savefig('groups_shots_pause.png', dpi=1000, bbox_inches='tight')
+plt.savefig('groups_shots_pause.png', dpi=500, bbox_inches='tight')
