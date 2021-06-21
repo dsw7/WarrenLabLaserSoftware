@@ -30,43 +30,43 @@ MATLAB deploytool generated binaries for {}_3_6_0 version
 * Removed other garbage
 * Refactored ~/LaserTable_msc_3_3_0/internal_run_experiment.m
 ~/LaserTable_msc_3_3_0/internal_byte2number.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_number2byte.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_setup.m
-Updated code to standards but I didn't confirm the code. It was inherited from a CS dummy script.
+    Updated code to standards but I didn't confirm the code. It was inherited from a CS dummy script.
 ~/LaserTable_msc_3_3_0/internal_run_experiment.m
-Fixed a shutter operation bug (see bug report) & cleaned up the code to standards.
+    Fixed a shutter operation bug (see bug report) & cleaned up the code to standards.
 ~/LaserTable_msc_3_3_0/internal_save_function.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_createDK240object.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_close_monochromator.m
-No work was needed.
+    No work was needed.
 ~/LaserTable_msc_3_3_0/internal_GETmonochromator_entrance_slit_width.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_GETmonochromator_exit_slit_width.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_SETmonochromator_entrance_slit_width.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_SETmonochromator_exit_slit_width.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_GETmonochromator_wavelength.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_SETmonochromator_wavelength.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_NI_channels.m
-Updated code to standards. No further work needed.
+    Updated code to standards. No further work needed.
 ~/LaserTable_msc_3_3_0/internal_createQC9514object.m
-Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.
+    Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.
 ~/LaserTable_msc_3_3_0/internal_close_DDG.m
-No work was needed.
+    No work was needed.
 ~/LaserTable_msc_3_3_0/internal_QC9514_channel_manager.m
-Updated code to MATLAB standards but I did not check to make sure the code meets
-SCPI formatting standards for the QC9514 device yet. Check if fprintf() is the
-best way to pass SCPI commands.
+    Updated code to MATLAB standards but I did not check to make sure the code meets
+    SCPI formatting standards for the QC9514 device yet. Check if fprintf() is the
+    best way to pass SCPI commands.
 ~/LaserTable_msc_3_3_0/internal_QC9514_pulsestate.m
-Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.
+    Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.
 
 ========================================================
 
@@ -74,52 +74,52 @@ Updated code to standards. Check if fprintf() is the best way to pass SCPI comma
 * N = 1 for timebase > 1 ms
 * width = 2.0 s for timebase > 1 ms
 * Changed the following under ~/LaserTable_msc_3_4_0/internal_run_experiment.m:
-86        pause(timeDecay);
-87
-88        shutter_1.outputSingleScan(1);
-89        shutter_2.outputSingleScan(1);    % remove this
-90
-91        if mode == 'T'
-92            shutter_3.outputSingleScan(1);
-93        end
-94    end
+    86        pause(timeDecay);
+    87
+    88        shutter_1.outputSingleScan(1);
+    89        shutter_2.outputSingleScan(1);    % remove this
+    90
+    91        if mode == 'T'
+    92            shutter_3.outputSingleScan(1);
+    93        end
+    94    end
 
-To:
+    To:
 
-86        pause(timeDecay);
-87
-88        shutter_1.outputSingleScan(1);
-89
-90        if mode == 'T'
-91            shutter_3.outputSingleScan(1);
-92        end
-93    end
+    86        pause(timeDecay);
+    87
+    88        shutter_1.outputSingleScan(1);
+    89
+    90        if mode == 'T'
+    91            shutter_3.outputSingleScan(1);
+    92        end
+    93    end
 
 * Added new function:
-~/LaserTable_msc_3_4_0/internal_run_experiment_lt.m
-This function is for working with long timescales.
-Recall that N = 1 and S >= 1
+    ~/LaserTable_msc_3_4_0/internal_run_experiment_lt.m
+        This function is for working with long timescales.
+        Recall that N = 1 and S >= 1
 
-PSEUDOCODE:
+    PSEUDOCODE:
 
-corrected = []
-for s = 1:S
-background = []
-experimental = []
-for session = 1:2
-if session == 1 % the background
-open shutter 1 for 1 pulse
-close shutter 1
-delay for the entire timescale
-data from scope -> background []
-else % the actual experiment
-open shutter 1 for 1 pulse
-close shutter 1
-delay for the entire timescale
-data from scope -> experimental []
+    corrected = []
+    for s = 1:S
+        background = []
+        experimental = []
+        for session = 1:2
+            if session == 1 % the background
+                open shutter 1 for 1 pulse
+                close shutter 1
+                delay for the entire timescale
+                data from scope -> background []
+            else % the actual experiment
+                open shutter 1 for 1 pulse
+                close shutter 1
+                delay for the entire timescale
+                data from scope -> experimental []
 
-experimental [] - background [] -> corrected []
-export corrected [] for plot
+        experimental [] - background [] -> corrected []
+    export corrected [] for plot
 
 * Added a slider for programmatically controlling the PMT voltage
 
@@ -132,13 +132,13 @@ export corrected [] for plot
 * Added CsMl_FreeSystem() to exit routine instead of relying on internals for exiting
 * Added removeChannel(...) to remove all NI channels in exit routine instead of relying on internals
 * Removed the following due to redundancy:
-~/LaserTable_msc_3_5_0/internal_NI_channels.m
-~/LaserTable_msc_3_5_0/internal_createDK240object.m
-~/LaserTable_msc_3_5_0/internal_createQC9514object.m
-~/LaserTable_msc_3_5_0/internal_close_DDG.m
-~/LaserTable_msc_3_5_0/internal_close_monochromator.m
-~/LaserTable_msc_3_5_0/internal_save_function.m
-~/LaserTable_msc_3_5_0/QC9514_pulsestate.m
+    ~/LaserTable_msc_3_5_0/internal_NI_channels.m
+    ~/LaserTable_msc_3_5_0/internal_createDK240object.m
+    ~/LaserTable_msc_3_5_0/internal_createQC9514object.m
+    ~/LaserTable_msc_3_5_0/internal_close_DDG.m
+    ~/LaserTable_msc_3_5_0/internal_close_monochromator.m
+    ~/LaserTable_msc_3_5_0/internal_save_function.m
+    ~/LaserTable_msc_3_5_0/QC9514_pulsestate.m
 * Capitalized all global variables somewhat like C++ macro definition syntax
 * Also gave many global variables more descriptive names
 * Removed experiment_mode -> experimentType conversion from the START EXPERIMENT section
@@ -149,25 +149,25 @@ export corrected [] for plot
 
 ~/LaserTable_msc_3_6_0 // July 31 2018
 * Replaced {} with {}:
-~/LaserTable_msc_3_6_0/internal_setup.m -> LaserTable_msc_3_6_0/css.m
+    ~/LaserTable_msc_3_6_0/internal_setup.m -> LaserTable_msc_3_6_0/css.m
 * Minimum groups of shots set back to 3. The signal averaging algorithm crashes for any number of groups < 3.
 * Removed the following due to redundancy:
-~/LaserTable_msc_3_6_0/internal_run_experiment.m
-And rewrote the CompuScope capture algorithm in the main script. This bypasses costly function calls
-that slow down the program.
+    ~/LaserTable_msc_3_6_0/internal_run_experiment.m
+  And rewrote the CompuScope capture algorithm in the main script. This bypasses costly function calls
+  that slow down the program.
 * Redesigned GUI
 * Reworked ABORT routine. The experiment can be aborted any time
 * fopen() / fclose() pipeline confirmed for CompuScope hardware
 * fopen() / fclose() pipeline confirmed for NI hardware ->
-Replaced:
-removeChannel(INST_NI_DIGITAL, [1 2 3]);
-removeChannel(INST_NI_ANALOG, 1);
-release(INST_NI_DIGITAL);
-release(INST_NI_ANALOG);
-With:
-delete(INST_NI_DIGITAL);
-delete(INST_NI_ANALOG);
-Both processes do the same thing according DAQ toolbox documentation
+    Replaced:
+        removeChannel(INST_NI_DIGITAL, [1 2 3]);
+        removeChannel(INST_NI_ANALOG, 1);
+        release(INST_NI_DIGITAL);
+        release(INST_NI_ANALOG);
+    With:
+        delete(INST_NI_DIGITAL);
+        delete(INST_NI_ANALOG);
+    Both processes do the same thing according DAQ toolbox documentation
 * Added LICENSE.md file
 * Cannot change MATLAB icon due to terms of service violation - I did however change icon on deploytool binary generation
 
@@ -182,14 +182,14 @@ main script -> see (18) in TODO list.
 * Refactored DK240 monochromator code into main script
 * fopen() / fclose() pipeline confirmed for DK240 hardware
 * Removed the following due to redundancy (after refactoring):
-~/LaserTable_msc_3_7_0/internal_SETmonochromator_entrance_slit_width.m
-~/LaserTable_msc_3_7_0/internal_SETmonochromator_exit_slit_width.m
-~/LaserTable_msc_3_7_0/internal_SETmonochromator_wavelength.m
-~/LaserTable_msc_3_7_0/internal_GETmonochromator_entrance_slit_width.m
-~/LaserTable_msc_3_7_0/internal_GETmonochromator_exit_slit_width.m
-~/LaserTable_msc_3_7_0/internal_GETmonochromator_wavelength.m
-~/LaserTable_msc_3_7_0/internal_byte2number.m
-~/LaserTable_msc_3_7_0/internal_number2byte.m
+    ~/LaserTable_msc_3_7_0/internal_SETmonochromator_entrance_slit_width.m
+    ~/LaserTable_msc_3_7_0/internal_SETmonochromator_exit_slit_width.m
+    ~/LaserTable_msc_3_7_0/internal_SETmonochromator_wavelength.m
+    ~/LaserTable_msc_3_7_0/internal_GETmonochromator_entrance_slit_width.m
+    ~/LaserTable_msc_3_7_0/internal_GETmonochromator_exit_slit_width.m
+    ~/LaserTable_msc_3_7_0/internal_GETmonochromator_wavelength.m
+    ~/LaserTable_msc_3_7_0/internal_byte2number.m
+    ~/LaserTable_msc_3_7_0/internal_number2byte.m
 
 ========================================================
 
@@ -197,7 +197,7 @@ main script -> see (18) in TODO list.
 * Refactored QC9514 SCPI communication code into main script
 * fopen() / fclose() pipeline confirmed for QC9514 hardware
 * Removed the following due to redundancy (after refactoring):
-~/LaserTable_msc_3_8_0/internal_QC9514_channel_manager.m class
+    ~/LaserTable_msc_3_8_0/internal_QC9514_channel_manager.m class
 * Added a msgbox that notifies user when an experiment is over
 * Arc lamp pulser shuts off between TA experiments
 * Removed a redundant shutter control command from acquisition loop
@@ -234,9 +234,9 @@ main script -> see (18) in TODO list.
 ** Some other dev might have to deal with this if these timebases ever come to use
 ** I have left the code intact with timebases up to 13, however I removed:
 
-11 - 1 s [10 us/pt]
-12 - 10 s [100 us/pt]
-13 - 50 s [500 us/pt]
+    11 - 1 s [10 us/pt]
+    12 - 10 s [100 us/pt]
+    13 - 50 s [500 us/pt]
 
 From the Property Inspector -> String menu in timebase_CreateFcn through GUIDE.
 Another developer can easily undo my changes by adding the above to the String list
@@ -245,7 +245,7 @@ through the GUIDE property inspector
 "! QC9514 channel not pulsing in lt_s.m" traceback:
 
 Step 1. User starts program, selects TA and then selects a long timescale alongside the other setup
-// this properly enables CHA
+        // this properly enables CHA
 Step 2. User hits START - program operates normally
 Step 3. Program will finish acquisition and CHA will be automatically disabled to stop arc lamp pulsing
 Step 4. User hits START a second time - program no longer re-enables CHA
@@ -254,27 +254,27 @@ The problem? CHA disable was not properly reflected with a CHA enable in my dive
 
 Bug:
 -------------------------------------------------------------
-... do lt_s.m
+    ... do lt_s.m
 
-if EXPERIMENT_MODE == 3
-set(handles.channel_A_checkbox, 'Value', 0);
-fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
-end
+    if EXPERIMENT_MODE == 3
+        set(handles.channel_A_checkbox, 'Value', 0);
+        fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
+    end
 -------------------------------------------------------------
 
 Fix:
 -------------------------------------------------------------
-if EXPERIMENT_MODE == 3
-set(handles.channel_A_checkbox, 'Value', 1);
-fprintf(QC9514, strcat(CHANNELS('A'), STATE('ON')));
-end
+    if EXPERIMENT_MODE == 3
+        set(handles.channel_A_checkbox, 'Value', 1);
+        fprintf(QC9514, strcat(CHANNELS('A'), STATE('ON')));
+    end
 
-... do lt_s.m
+    ... do lt_s.m
 
-if EXPERIMENT_MODE == 3
-set(handles.channel_A_checkbox, 'Value', 0);
-fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
-end
+    if EXPERIMENT_MODE == 3
+        set(handles.channel_A_checkbox, 'Value', 0);
+        fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
+    end
 -------------------------------------------------------------
 
 ========================================================
@@ -283,5 +283,5 @@ end
 * Begin preparing for transition to GitHub -> /dsw7/WarrenLabLaserSoftware
 * Note that existing code in GH is from v3.9.0 -> update this with 3.10.0 code?
 * Control circuit -> ~/stircontrol_warrenlasertable/dsw_controlcircuit_pinout.pdf
-Work into lt_s.m?
+  Work into lt_s.m?
 * Further isolate and clarify entry point into lt_s.m for other developers?
