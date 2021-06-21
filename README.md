@@ -1,39 +1,43 @@
-# WarrenLabLaserSoftware  
+# WarrenLabLaserSoftware
 
-Repository containing all Warren Lab MATLAB laser code written by DSW.  
-See https://github.com/dsw7/DSW-Thesis/tree/master/thesis_SerialIO for hardware I/O MATLAB snippets.
+Repository containing all Warren Lab MATLAB laser code written by David Weber. See [Applications of numerical linear algebra to protein structural analysis: the case of methionine-aromatic motifs](https://summit.sfu.ca/item/18741) for more information.
 
----
-## Layout  
-
-<img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/pngs/gui_3_10_withlabels.png">  
-
-## Description  
-**A.** Here the user chooses between fluorescence and TA mode.  
-**B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger).  
-**C.** The number of blank and experimental laser flashes (see **Example for Laser Options parameters**).  
-**D.** The number of groups of laser flashes (see **Example for Laser Options parameters**).  
-**E.** The pause time between groups of shots (see **Example for Laser Options parameters**).  
-**F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240).  
-**G.** The DK240 returns the ACTUAL wavelength back to the user.  
-**H.** The user selects the slit width at the entrance of the DK240.  
-**I.** The user selects the slit width at the exit of the DK240.  
-**J.** The user selects the Hamamatsu PMT voltage.  
-**K.** QC9514 Digital Delay Generator options. Note that these fields are filled automatically upon toggling **A**.  
-**L.** This checkbox fires up the laser. The laser will not fire until all parameters have been selected.  
-**M.** Convenience feature for programmatically controlling individual shutters.  
-**N.** Convenience feature for programmatically controlling all shutters.  
-**O.** Pressing the START button will begin an experiment.  
-**P.** Pressing the ABORT button will immediately stop an experiment. **Use in case of a major safety issue arising during an  
-       an experiment** or perhaps to abort an experiment if parameters were incorrectly chosen.  
-**Q.** Exports signal averaged data as .csv to a directory of choosing.  
-**R.** The results pane displaying the oscilloscope output.  
+## Disclaimer
+- I am not a MATLAB expert. Actually I learned MATLAB on the fly simply to fulfill the requirements of this project. I acknowledge that this code is far from ideal and I would have done many things differently now that I am more experienced.
+- Some of this code was automatically generated using the MATLAB GUI editor.
+- This code can likely very easily be broken up into individual `*.m` files.
 
 ---
-### Example for Laser Options parameters  
+## Layout
+
+<img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/pngs/gui_3_10_withlabels.png">
+
+## Description
+**A.** Here the user chooses between fluorescence and TA mode.
+**B.** The user selects a timebase (i.e. time interval to sample starting from oscilloscope trigger).
+**C.** The number of blank and experimental laser flashes (see **Example for Laser Options parameters**).
+**D.** The number of groups of laser flashes (see **Example for Laser Options parameters**).
+**E.** The pause time between groups of shots (see **Example for Laser Options parameters**).
+**F.** The user selects the DK240 monochromator wavelength (sent as an SCPI command TO the DK240).
+**G.** The DK240 returns the ACTUAL wavelength back to the user.
+**H.** The user selects the slit width at the entrance of the DK240.
+**I.** The user selects the slit width at the exit of the DK240.
+**J.** The user selects the Hamamatsu PMT voltage.
+**K.** QC9514 Digital Delay Generator options. Note that these fields are filled automatically upon toggling **A**.
+**L.** This checkbox fires up the laser. The laser will not fire until all parameters have been selected.
+**M.** Convenience feature for programmatically controlling individual shutters.
+**N.** Convenience feature for programmatically controlling all shutters.
+**O.** Pressing the START button will begin an experiment.
+**P.** Pressing the ABORT button will immediately stop an experiment. **Use in case of a major safety issue arising during an
+       an experiment** or perhaps to abort an experiment if parameters were incorrectly chosen.
+**Q.** Exports signal averaged data as .csv to a directory of choosing.
+**R.** The results pane displaying the oscilloscope output.
+
+---
+### Example for Laser Options parameters
 
 <p align="justified">
-Note that the "user" has indicated they wish to collect 3 groups of 25 shots and have inputted a delay time of 2 seconds. What does this mean? An oscilloscope reading the output of the PMT will first collect 25 reads with a shutter blocking the Nd:YAG laser from striking the sample cuvette. This is the blank read. The shutter will then open and the Nd:YAG laser will reach (and excite) the sample 25 times. The sample will emit light which will be picked up by the PMT/oscilloscope. The blank data will then be subtracted from the experimental data to yield corrected data. Corrected data will then be signal averaged. Recall that the user specified 3 groups of shots. The aforementioned sequence of events will now be repeated three times, with a delay of 2 seconds between each group. The figure below very nicely depicts this sequence of events:  
+Note that the "user" has indicated they wish to collect 3 groups of 25 shots and have inputted a delay time of 2 seconds. What does this mean? An oscilloscope reading the output of the PMT will first collect 25 reads with a shutter blocking the Nd:YAG laser from striking the sample cuvette. This is the blank read. The shutter will then open and the Nd:YAG laser will reach (and excite) the sample 25 times. The sample will emit light which will be picked up by the PMT/oscilloscope. The blank data will then be subtracted from the experimental data to yield corrected data. Corrected data will then be signal averaged. Recall that the user specified 3 groups of shots. The aforementioned sequence of events will now be repeated three times, with a delay of 2 seconds between each group. The figure below very nicely depicts this sequence of events:
 </p>
 
 <img src="https://github.com/dsw7/WarrenLabLaserSoftware/blob/master/pngs/groups_shots_pause.png">
@@ -41,8 +45,8 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
 <!---
     # code for plotting the shots groups delay figure
     import matplotlib.pyplot as plt
-    import matplotlib.patches as patches  
-  
+    import matplotlib.patches as patches
+
     scale = 4
     f = plt.figure(figsize=(scale * 2, scale))
 
@@ -83,19 +87,19 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     pos    = [0, 25, 50, 75, 100, 125, 150, 175, 200]
     labels = [0, 25, 50, 0, 25, 50, 0, 25, 50]
     plt.xticks(pos, labels)
-           
-    plt.xlabel('Laser shots', size=14)    
 
-    plt.savefig('figure.png', dpi=1000, bbox_inches='tight')      
-           
+    plt.xlabel('Laser shots', size=14)
+
+    plt.savefig('figure.png', dpi=1000, bbox_inches='tight')
+
     plt.show()
 -->
 
 ---
 ## Description of all directories
 
-    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.fig    // last grad school GUI update 
-    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.m      // last grad school "main" script update 
+    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.fig    // last grad school GUI update
+    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.m      // last grad school "main" script update
     ~/WarrenLabLaserSoftware/LaserTableProgram.fig          // the GUI code
     ~/WarrenLabLaserSoftware/LaserTableProgram.m            // the "main" script
     ~/WarrenLabLaserSoftware/css.m                          // isolated .m CompuScope data acquisition script
@@ -113,28 +117,28 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
 
 ---
 ## Some previous versions/notes from SFU Vault
-  
-    ~/LaserTable_msc_3_1_0   
-    
-    ========================================================   
-      
-    ~/LaserTable_msc_3_2_0  
-    Very stable version, previously used in C7000 lab  
-    
-    ========================================================     
-    
+
+    ~/LaserTable_msc_3_1_0
+
+    ========================================================
+
+    ~/LaserTable_msc_3_2_0
+    Very stable version, previously used in C7000 lab
+
+    ========================================================
+
     ~/DSWLaserProgram_3_2_0
     ~/DSWLaserProgram_3_2_0.prj
     MATLAB deploytool generated binaries for LaserTable_msc_3_2_0 directory
-    
-    ========================================================   
-         
-    ~/DSWLaserTable_3_6_deploytoolbinaries  
-    MATLAB deploytool generated binaries for {}_3_6_0 version  
-    .exe located under ~/DSWLaserTable_3_6_deploytoolbinaries/for_testing  
-    
-    ========================================================   
-             
+
+    ========================================================
+
+    ~/DSWLaserTable_3_6_deploytoolbinaries
+    MATLAB deploytool generated binaries for {}_3_6_0 version
+    .exe located under ~/DSWLaserTable_3_6_deploytoolbinaries/for_testing
+
+    ========================================================
+
     ~/LaserTable_msc_3_3_0 // May 29 2018
     * Removed Python scripts
     * Minimum number of shots N reduced from 10 to 1
@@ -144,12 +148,12 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     * Gave shutters A, B and C more descriptive names in the GUI
     * Instructions fetched by making menu bar calls are obtained from text files, and not hard code
     * Removed other garbage
-    * Refactored ~/LaserTable_msc_3_3_0/internal_run_experiment.m        
+    * Refactored ~/LaserTable_msc_3_3_0/internal_run_experiment.m
     ~/LaserTable_msc_3_3_0/internal_byte2number.m
         Updated code to standards. No further work needed.
     ~/LaserTable_msc_3_3_0/internal_number2byte.m
         Updated code to standards. No further work needed.
-    ~/LaserTable_msc_3_3_0/internal_setup.m                                                               
+    ~/LaserTable_msc_3_3_0/internal_setup.m
         Updated code to standards but I didn't confirm the code. It was inherited from a CS dummy script.
     ~/LaserTable_msc_3_3_0/internal_run_experiment.m
         Fixed a shutter operation bug (see bug report) & cleaned up the code to standards.
@@ -174,27 +178,27 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     ~/LaserTable_msc_3_3_0/internal_NI_channels.m
         Updated code to standards. No further work needed.
     ~/LaserTable_msc_3_3_0/internal_createQC9514object.m
-        Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.              
+        Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.
     ~/LaserTable_msc_3_3_0/internal_close_DDG.m
         No work was needed.
     ~/LaserTable_msc_3_3_0/internal_QC9514_channel_manager.m
-        Updated code to MATLAB standards but I did not check to make sure the code meets 
-        SCPI formatting standards for the QC9514 device yet. Check if fprintf() is the 
-        best way to pass SCPI commands.                                                                   
+        Updated code to MATLAB standards but I did not check to make sure the code meets
+        SCPI formatting standards for the QC9514 device yet. Check if fprintf() is the
+        best way to pass SCPI commands.
     ~/LaserTable_msc_3_3_0/internal_QC9514_pulsestate.m
-        Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.                   
-    
-    ========================================================         
+        Updated code to standards. Check if fprintf() is the best way to pass SCPI commands.
+
+    ========================================================
 
     ~/LaserTable_msc_3_4_0 // July 17 2018
     * N = 1 for timebase > 1 ms
     * width = 2.0 s for timebase > 1 ms
-    * Changed the following under ~/LaserTable_msc_3_4_0/internal_run_experiment.m:  
-        86        pause(timeDecay); 
-        87        
-        88        shutter_1.outputSingleScan(1); 
+    * Changed the following under ~/LaserTable_msc_3_4_0/internal_run_experiment.m:
+        86        pause(timeDecay);
+        87
+        88        shutter_1.outputSingleScan(1);
         89        shutter_2.outputSingleScan(1);    % remove this
-        90        
+        90
         91        if mode == 'T'
         92            shutter_3.outputSingleScan(1);
         93        end
@@ -202,9 +206,9 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
 
         To:
 
-        86        pause(timeDecay); 
-        87        
-        88        shutter_1.outputSingleScan(1); 
+        86        pause(timeDecay);
+        87
+        88        shutter_1.outputSingleScan(1);
         89
         90        if mode == 'T'
         91            shutter_3.outputSingleScan(1);
@@ -237,10 +241,10 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
             experimental [] - background [] -> corrected []
         export corrected [] for plot
 
-    * Added a slider for programmatically controlling the PMT voltage     
-    
-    ========================================================   
-            
+    * Added a slider for programmatically controlling the PMT voltage
+
+    ========================================================
+
     ~/LaserTable_msc_3_5_0 // July 18 2018
     * Did not remove global declarations - turns out they really are the best option in MATLAB
     * Changed handles._ referencing to hObject referencing in shutter radio button functions
@@ -260,9 +264,9 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     * Removed experiment_mode -> experimentType conversion from the START EXPERIMENT section
     * Removed QC9514 global declarations from 'Digital Delay Generator' panel callbacks - no idea what this will do
     * Laser now shuts off at the end of an experiment for safety reasons
-    
-    ========================================================   
-             
+
+    ========================================================
+
     ~/LaserTable_msc_3_6_0 // July 31 2018
     * Replaced {} with {}:
         ~/LaserTable_msc_3_6_0/internal_setup.m -> LaserTable_msc_3_6_0/css.m
@@ -291,9 +295,9 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     This is due to the fact that ~/LaserTable_msc_3_6_0/internal_run_experiment_lt.m
     script was obliterated on setting up the CompuScope acquisition algorithm into the
     main script -> see (18) in TODO list.
-    
-    ========================================================   
-                    
+
+    ========================================================
+
     ~/LaserTable_msc_3_7_0 // Aug 14 2018
     * Refactored DK240 monochromator code into main script
     * fopen() / fclose() pipeline confirmed for DK240 hardware
@@ -305,10 +309,10 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
         ~/LaserTable_msc_3_7_0/internal_GETmonochromator_exit_slit_width.m
         ~/LaserTable_msc_3_7_0/internal_GETmonochromator_wavelength.m
         ~/LaserTable_msc_3_7_0/internal_byte2number.m
-        ~/LaserTable_msc_3_7_0/internal_number2byte.m 
-    
-    ========================================================   
-      
+        ~/LaserTable_msc_3_7_0/internal_number2byte.m
+
+    ========================================================
+
     ~/LaserTable_msc_3_8_0 // Aug 15 2018
     * Refactored QC9514 SCPI communication code into main script
     * fopen() / fclose() pipeline confirmed for QC9514 hardware
@@ -318,10 +322,10 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     * Arc lamp pulser shuts off between TA experiments
     * Removed a redundant shutter control command from acquisition loop
     * Fixed issue with wrong figure title showing up in figure window
-    * Replaced Continuum PSU pressure switch  
-    
-    ========================================================   
-      
+    * Replaced Continuum PSU pressure switch
+
+    ========================================================
+
     ~/LaserTable_msc_3_9_0 // Aug 16 2018
     * Refactored lt routine into program by diverting into function l_ts.m
     * y-axis offset issue occurs only during TA experiments for some reason -> stray arc lamp light?
@@ -338,7 +342,7 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     5 - CS12502  - GOOD  // 400 us
     6 - CS12502  - GOOD  // 800 us
 
-    // --- SLOW DIGITIZER --- //  
+    // --- SLOW DIGITIZER --- //
     7 -  CS8422   -  Pump obscured? Shutter sequence might be too fast??
     8 -  CS8422   -  GOOD
     9 -  CS8422   -  GOOD
@@ -350,9 +354,9 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
     ** Some other dev might have to deal with this if these timebases ever come to use
     ** I have left the code intact with timebases up to 13, however I removed:
 
-        11 - 1 s [10 us/pt]                                 
-        12 - 10 s [100 us/pt]                               
-        13 - 50 s [500 us/pt]      
+        11 - 1 s [10 us/pt]
+        12 - 10 s [100 us/pt]
+        13 - 50 s [500 us/pt]
 
     From the Property Inspector -> String menu in timebase_CreateFcn through GUIDE.
     Another developer can easily undo my changes by adding the above to the String list
@@ -375,7 +379,7 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
         if EXPERIMENT_MODE == 3
             set(handles.channel_A_checkbox, 'Value', 0);
             fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
-        end   
+        end
     -------------------------------------------------------------
 
     Fix:
@@ -383,25 +387,25 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
         if EXPERIMENT_MODE == 3
             set(handles.channel_A_checkbox, 'Value', 1);
             fprintf(QC9514, strcat(CHANNELS('A'), STATE('ON')));
-        end 
+        end
 
         ... do lt_s.m
 
         if EXPERIMENT_MODE == 3
             set(handles.channel_A_checkbox, 'Value', 0);
             fprintf(QC9514, strcat(CHANNELS('A'), STATE('OFF')));
-        end   
+        end
     -------------------------------------------------------------
-        
-    ========================================================   
-      
+
+    ========================================================
+
     ~/LaserTable_msc_3_10_0 // Nov 2 2018
     * Begin preparing for transition to GitHub -> /dsw7/WarrenLabLaserSoftware
     * Note that existing code in GH is from v3.9.0 -> update this with 3.10.0 code?
     * Control circuit -> ~/stircontrol_warrenlasertable/dsw_controlcircuit_pinout.pdf
       Work into lt_s.m?
     * Further isolate and clarify entry point into lt_s.m for other developers?
-        
+
 
 ---
 ## TODO list:
@@ -424,7 +428,7 @@ Note that the "user" has indicated they wish to collect 3 groups of 25 shots and
 15. Confirm that all fopen() / fclose() pipelines follow literature/documentation recommendations          % DONE
 16. Remove additional redundant functions ->  ~/internal_QC9514_pulsestate.m                               % DONE
 17. Update shutter radio button states to match shutter states on start up
-18. Update ~/LaserTable_msc_3_5_0/internal_run_experiment_lt.m NI routines                                 % DONE 
+18. Update ~/LaserTable_msc_3_5_0/internal_run_experiment_lt.m NI routines                                 % DONE
 19. Attempt to make ABORT button abort experiment immediately using CsMl_AbortCapture()                    % DONE
 20. Merge updated ~/LaserTable_msc_3_6_0/internal_run_experiment_lt.m into the main script
 21. Reformat GUI - increase density, labelling and add version number                                      % DONE
