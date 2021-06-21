@@ -55,11 +55,8 @@ File / Directory | Description
 `LaserTableProgram.m` | The "main" script
 `css.m` | Isolated `.m` CompuScope data acquisition script
 `l_ts.m` | Isolated `.m` long timescale data acquisition script
-`docs` | Contains all hardware data/spec sheets
-`icon.png` | Some throwaway icon for standalone shortcut
-`caliper.ico` | Some throwaway icon for standalone shortcut
-`gui_3.6.0.png` | Screenshot of v3.6 UI for documentation/thesis purposes
-`gui_3_10_withlabels.png` | Screenshot of v3.10 UI for documentation purposes
+`docs` | Contains all hardware data/spec sheets, a TODO list, and some content from SFU vault
+`pngs` | Throwaway icons, screenshots and plots for documentation
 `general_instructions.txt` | Basic instructions imported into program upon user request
 `additional_features.m` | Info for other features that can be requested by user
 `groups_shots_pause.m` | Schematic representation of groups vs. shots vs. pause UI input
