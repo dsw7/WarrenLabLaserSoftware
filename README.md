@@ -5,6 +5,8 @@ Repository containing all Warren Lab MATLAB laser code written by David Weber. S
 - [Disclaimer](#disclaimer)
 - [Layout](#layout)
 - [Description](#description)
+- [Example](#example-for-laser-options-parameters)
+- [Description of all directories](#description-of-all-directories)
 
 ## Disclaimer
 - I am not a MATLAB expert. Actually I learned MATLAB on the fly simply to fulfill the requirements of this project. I acknowledge that this code is far from ideal and I would have done many things differently now that I am more experienced.
