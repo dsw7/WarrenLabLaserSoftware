@@ -90,22 +90,22 @@ Note that in the [Layout](#layout) example, the "user" has indicated they wish t
 -->
 
 ## Description of all directories
-
-    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.fig    // last grad school GUI update
-    ~/WarrenLabLaserSoftware/LaserTableProgram3_10_0.m      // last grad school "main" script update
-    ~/WarrenLabLaserSoftware/LaserTableProgram.fig          // the GUI code
-    ~/WarrenLabLaserSoftware/LaserTableProgram.m            // the "main" script
-    ~/WarrenLabLaserSoftware/css.m                          // isolated .m CompuScope data acquisition script
-    ~/WarrenLabLaserSoftware/l_ts.m                         // isolated .m long timescale data acquisition script
-    ~/WarrenLabLaserSoftware/docs                           // contains all hardware data/spec sheets
-    ~/WarrenLabLaserSoftware/_defunct                       // contains legacy code
-    ~/WarrenLabLaserSoftware/icon.png                       // some throwaway icon for standalone shortcut
-    ~/WarrenLabLaserSoftware/caliper.ico                    // some throwaway icon for standalone shortcut
-    ~/WarrenLabLaserSoftware/gui_3.6.0.png                  // screenshot of v3.6 UI for documentation/thesis purposes
-    ~/WarrenLabLaserSoftware/gui_3_10_withlabels.png        // screenshot of v3.10 UI for documentation purposes
-    ~/WarrenLabLaserSoftware/general_instructions.txt       // basic instructions imported into program upon user request
-    ~/WarrenLabLaserSoftware/additional_features.m          // info for other features that can be requested by user
-    ~/WarrenLabLaserSoftware/groups_shots_pause.m           // schematic representation of groups vs. shots vs. pause UI input
+File / Directory | Description
+---------------- | -----------
+LaserTableProgram3_10_0.fig | Last grad school GUI update
+LaserTableProgram3_10_0.m | Last grad school "main" script update
+LaserTableProgram.fig | The GUI code
+LaserTableProgram.m | The "main" script
+css.m | Isolated .m CompuScope data acquisition script
+l_ts.m | Isolated .m long timescale data acquisition script
+docs | Contains all hardware data/spec sheets
+icon.png | Some throwaway icon for standalone shortcut
+caliper.ico | Some throwaway icon for standalone shortcut
+gui_3.6.0.png | Screenshot of v3.6 UI for documentation/thesis purposes
+gui_3_10_withlabels.png | Screenshot of v3.10 UI for documentation purposes
+general_instructions.txt | Basic instructions imported into program upon user request
+additional_features.m | Info for other features that can be requested by user
+groups_shots_pause.m | Schematic representation of groups vs. shots vs. pause UI input
 
 ## Some previous versions/notes from SFU Vault
 
