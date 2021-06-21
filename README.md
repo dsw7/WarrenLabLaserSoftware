@@ -1,6 +1,11 @@
 # WarrenLabLaserSoftware
 Repository containing all Warren Lab MATLAB laser code written by David Weber. See [Applications of numerical linear algebra to protein structural analysis: the case of methionine-aromatic motifs](https://summit.sfu.ca/item/18741) for more information.
 
+## Table of contents
+- [Disclaimer](#disclaimer)
+- [Layout](#layout)
+- [Description](#description)
+
 ## Disclaimer
 - I am not a MATLAB expert. Actually I learned MATLAB on the fly simply to fulfill the requirements of this project. I acknowledge that this code is far from ideal and I would have done many things differently now that I am more experienced.
 - Some of this code was automatically generated using the MATLAB GUI editor.
